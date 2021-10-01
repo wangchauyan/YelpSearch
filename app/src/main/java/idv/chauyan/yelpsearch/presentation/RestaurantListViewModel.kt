@@ -24,8 +24,10 @@ class RestaurantListViewModel : ViewModel() {
 
   fun getRestaurantsWithPageSize(pageSize: Int) {
     viewModelScope.launch {
-      val restaurants = getRestaurants.get("pizza", "111 sutter st, san francisco, ca", pageSize)
-      restaurantsLiveData.postValue(restaurants)
+      val restaurantsForPizza = getRestaurants.get("pizza", "111 sutter st, san francisco, ca", pageSize)
+      restaurantsLiveData.postValue(restaurantsForPizza)
+      val restaurantsForBeer = getRestaurants.get("beer", "111 sutter st, san francisco, ca", pageSize)
+      restaurantsLiveData.postValue(restaurantsForBeer)
     }
   }
 }

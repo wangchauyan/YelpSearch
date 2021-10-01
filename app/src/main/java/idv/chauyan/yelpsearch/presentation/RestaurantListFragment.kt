@@ -19,7 +19,7 @@ open class RestaurantListFragment : Fragment() {
 
   @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
   var debug: Boolean = false
-  private val pageSize = 50
+  private val pageSize = 10
 
   private lateinit var viewModel: RestaurantListViewModel
   private lateinit var restaurantListAdapter: RestaurantListAdapter
@@ -72,7 +72,7 @@ open class RestaurantListFragment : Fragment() {
     viewModel = ViewModelProvider(this).get(RestaurantListViewModel::class.java)
     viewModel.initUseCases(debug)
     viewModel.getRestaurantsLiveData().observe(viewLifecycleOwner) { restaurants ->
-      restaurantListAdapter.updateRestaurants(restaurants.data, true)
+      restaurantListAdapter.updateRestaurants(restaurants.data, false)
     }
   }
 

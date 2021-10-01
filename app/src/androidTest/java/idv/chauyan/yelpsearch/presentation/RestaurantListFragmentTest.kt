@@ -52,6 +52,6 @@ class RestaurantListFragmentTest {
     
     val itemCount = restaurantListView?.adapter?.itemCount
     Truth.assertThat(itemCount).isNotNull()
-    Truth.assertThat(itemCount).isEqualTo(4)
+    Truth.assertThat(itemCount).isEqualTo(8)
   }
 }
